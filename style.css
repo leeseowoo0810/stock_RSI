@@ -1,0 +1,109 @@
+/* 기본 설정 및 모바일 최적화 */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 스크롤바 숨김 */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 정렬 탭 활성화 스타일 */
+.sort-tab.active {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+  border-color: #6366f1 !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+/* RSI 게이지 바 스타일 */
+.rsi-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #10b981 0%, #10b981 30%, #475569 30%, #475569 70%, #f43f5e 70%, #f43f5e 100%);
+  position: relative;
+}
+
+.rsi-pointer {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.4);
+  border: 2px solid #0f172a;
+  transition: left 0.5s ease-out;
+}
+
+/* 주식 카드 애니메이션 */
+.stock-card {
+  transition: transform 0.15s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.stock-card:active {
+  transform: scale(0.99);
+}
+
+/* 순위 배지 1~3위 특별 스타일 */
+.rank-badge-1 {
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  color: #000000;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+}
+.rank-badge-2 {
+  background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
+  color: #0f172a;
+  font-weight: 800;
+}
+.rank-badge-3 {
+  background: linear-gradient(135deg, #fdba74 0%, #ea580c 100%);
+  color: #431407;
+  font-weight: 800;
+}
+.rank-badge-default {
+  background-color: #1e293b;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+/* 신호 상태 뱃지 컬러 */
+.signal-badge-strong_buy {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+.signal-badge-buy {
+  background-color: rgba(20, 184, 166, 0.15);
+  color: #2dd4bf;
+  border: 1px solid rgba(20, 184, 166, 0.35);
+}
+.signal-badge-neutral {
+  background-color: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+  border: 1px solid rgba(234, 179, 8, 0.35);
+}
+.signal-badge-caution {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+.signal-badge-overbought {
+  background-color: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.35);
+}
+
+/* 회전 애니메이션 */
+@keyframes spin-anim {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-custom {
+  animation: spin-anim 0.8s linear infinite;
+}
