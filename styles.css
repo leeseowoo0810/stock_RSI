@@ -145,9 +145,33 @@ h1 {
   animation: pulse 1.6s infinite;
 }
 
+.dot.pre {
+  background: #4ba3ff;
+  box-shadow: 0 0 0 6px rgba(75, 163, 255, 0.18);
+  animation: pulse-pre 1.6s infinite;
+}
+
+.dot.post {
+  background: #bf7af0;
+  box-shadow: 0 0 0 6px rgba(191, 122, 240, 0.18);
+  animation: pulse-post 1.6s infinite;
+}
+
 @keyframes pulse {
   50% {
     box-shadow: 0 0 0 10px rgba(61, 207, 154, 0);
+  }
+}
+
+@keyframes pulse-pre {
+  50% {
+    box-shadow: 0 0 0 10px rgba(75, 163, 255, 0);
+  }
+}
+
+@keyframes pulse-post {
+  50% {
+    box-shadow: 0 0 0 10px rgba(191, 122, 240, 0);
   }
 }
 
@@ -250,6 +274,44 @@ h1 {
 
 .price-wrap {
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.session-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.session-badge.pre {
+  background: rgba(75, 163, 255, 0.15);
+  color: #6db6ff;
+  border: 1px solid rgba(75, 163, 255, 0.3);
+}
+
+.session-badge.reg {
+  background: rgba(61, 207, 154, 0.15);
+  color: #3dcf9a;
+  border: 1px solid rgba(61, 207, 154, 0.3);
+}
+
+.session-badge.post {
+  background: rgba(191, 122, 240, 0.15);
+  color: #d09ef7;
+  border: 1px solid rgba(191, 122, 240, 0.3);
+}
+
+.session-badge.closed {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+  border: 1px solid var(--line);
 }
 
 .price {
@@ -342,6 +404,287 @@ h1 {
   color: #6f685c;
 }
 
+.rank-board {
+  margin: 18px 7vw 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.rank-col {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow);
+}
+
+.rank-col.buy-col {
+  border-top: 3px solid var(--cold);
+}
+
+.rank-col.sell-col {
+  border-top: 3px solid var(--hot);
+}
+
+.rank-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rank-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.rank-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.buy-col .rank-header h3 {
+  color: #72ebb8;
+}
+
+.sell-col .rank-header h3 {
+  color: #ff8560;
+}
+
+.rank-header p {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rank-loading {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 8px 0;
+}
+
+.rank-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.rank-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.rank-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rank-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+}
+
+.rank-order.gold {
+  background: var(--gold);
+  color: #080a0e;
+}
+
+.rank-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.rank-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.rank-ticker {
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+.rank-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.rank-rsi {
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.rank-rsi.cold {
+  color: var(--cold);
+}
+
+.rank-rsi.hot {
+  color: var(--hot);
+}
+
+.rank-tag {
+  font-size: 0.72rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.rank-tag.cold {
+  background: rgba(61, 207, 154, 0.15);
+  color: var(--cold);
+  border: 1px solid rgba(61, 207, 154, 0.3);
+}
+
+.rank-tag.hot {
+  background: rgba(255, 106, 61, 0.15);
+  color: var(--hot);
+  border: 1px solid rgba(255, 106, 61, 0.3);
+}
+
+.rank-tag.neutral {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+.controls-bar {
+  margin: 26px 7vw 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.controls-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.sort-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sort-btn {
+  background: var(--bg-elev);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sort-btn:hover {
+  color: var(--ink);
+  border-color: rgba(212, 176, 106, 0.4);
+}
+
+.sort-btn.active {
+  background: rgba(212, 176, 106, 0.15);
+  color: var(--gold);
+  border-color: var(--gold);
+  box-shadow: 0 0 12px rgba(212, 176, 106, 0.2);
+}
+
+.card-ranks {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.rank-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  letter-spacing: -0.01em;
+}
+
+.rank-pill.buy {
+  background: rgba(61, 207, 154, 0.12);
+  color: var(--cold);
+  border: 1px solid rgba(61, 207, 154, 0.35);
+}
+
+.rank-pill.sell {
+  background: rgba(255, 106, 61, 0.12);
+  color: var(--hot);
+  border: 1px solid rgba(255, 106, 61, 0.35);
+}
+
+.rank-pill.top {
+  border-width: 1.5px;
+  box-shadow: 0 0 6px currentColor;
+}
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.action-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.action-badge.cold {
+  background: rgba(61, 207, 154, 0.18);
+  color: #58f3b9;
+}
+
+.action-badge.hot {
+  background: rgba(255, 106, 61, 0.18);
+  color: #ff8560;
+}
+
+.action-badge.neutral {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+}
+
 .foot {
   padding: 8px 7vw 36px;
   font-size: 0.82rem;
@@ -367,12 +710,18 @@ h1 {
 
   .status-bar,
   .brief,
+  .rank-board,
+  .controls-bar,
   .grid,
   .foot {
     margin-left: 5vw;
     margin-right: 5vw;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .rank-board {
+    grid-template-columns: 1fr;
   }
 
   .status-bar {
