@@ -19,7 +19,7 @@
         <span class="mark">RSI</span>
         <div>
           <h1>미국 10대 주식 1분 RSI</h1>
-          <p>정규장 1분봉 · Wilder RSI(14) · GitHub Pages</p>
+          <p>프리마켓 · 정규장 · 애프터마켓 1분봉 · Wilder RSI(14)</p>
         </div>
       </div>
       <div class="clocks">
@@ -41,7 +41,7 @@
         <span id="market-dot" class="dot closed"></span>
         <div>
           <p id="market-state" class="state-title">장 상태 확인 중</p>
-          <p id="market-detail" class="state-sub">미국 정규장 09:30–16:00 ET</p>
+          <p id="market-detail" class="state-sub">프리마켓 04:00~09:30 · 정규장 09:30~16:00 · 애프터 16:00~20:00 ET</p>
         </div>
       </div>
       <div class="status-meta">
@@ -55,19 +55,55 @@
         </div>
       </div>
     </section>
-
     <section class="brief" id="market-brief">
       <h2>데스크 브리핑</h2>
       <p id="brief-text">시세를 불러오면 10종목 RSI를 종합해 분석합니다.</p>
       <div class="brief-stats" id="brief-stats"></div>
     </section>
 
+    <section class="rank-board" id="rank-board">
+      <div class="rank-col buy-col">
+        <div class="rank-header">
+          <span class="rank-icon">🟢</span>
+          <div>
+            <h3>매수 추천 순위 TOP 3</h3>
+            <p>단기 과매도 구간 · 기술적 반등 타점 순위</p>
+          </div>
+        </div>
+        <div class="rank-list" id="buy-rank-list">
+          <div class="rank-loading">순위 집계 중…</div>
+        </div>
+      </div>
+
+      <div class="rank-col sell-col">
+        <div class="rank-header">
+          <span class="rank-icon">🔴</span>
+          <div>
+            <h3>매도 주의 순위 TOP 3</h3>
+            <p>단기 과열 구간 · 차익 실현 및 되돌림 경계 순위</p>
+          </div>
+        </div>
+        <div class="rank-list" id="sell-rank-list">
+          <div class="rank-loading">순위 집계 중…</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls-bar">
+      <span class="controls-label">정렬 기준</span>
+      <div class="sort-tabs" id="sort-tabs">
+        <button type="button" class="sort-btn active" data-sort="default">기본 시총 순</button>
+        <button type="button" class="sort-btn" data-sort="buy">🟢 매수 추천 순 (RSI 낮은 순)</button>
+        <button type="button" class="sort-btn" data-sort="sell">🔴 매도 주의 순 (RSI 높은 순)</button>
+      </div>
+    </section>
+
     <main class="grid" id="stock-grid"></main>
 
     <footer class="foot">
       <p>
-        시세는 Yahoo Finance 1분봉을 사용합니다. RSI는 정규장 1분 종가로 계산하며,
-        장 마감·주말·휴장에는 가장 최근 정규장 마지막 봉을 유지합니다.
+        시세는 Yahoo Finance 1분봉(프리마켓·정규장·애프터마켓)을 사용합니다. RSI는 체결된 1분 종가로 계산하며,
+        시장 휴장 시에는 가장 최근 거래 세션의 마지막 체결 봉을 유지합니다.
       </p>
       <p>투자 권유가 아닌 참고용 지표입니다.</p>
     </footer>
