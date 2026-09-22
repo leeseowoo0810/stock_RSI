@@ -114,6 +114,67 @@ h1 {
   font-size: 0.82rem;
 }
 
+.page-nav {
+  margin: 18px 7vw 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  display: inline-flex;
+  gap: 6px;
+  background: var(--bg-elev);
+  padding: 5px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.nav-tab:hover {
+  color: var(--ink);
+  background: rgba(212, 176, 106, 0.08);
+  border-color: rgba(212, 176, 106, 0.2);
+}
+
+.nav-tab.active {
+  color: var(--gold);
+  background: rgba(212, 176, 106, 0.16);
+  border-color: rgba(212, 176, 106, 0.4);
+  font-weight: 700;
+}
+
+.nav-icon {
+  font-size: 1rem;
+}
+
+.nav-title {
+  letter-spacing: -0.01em;
+}
+
+.nav-desc {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-weight: 400;
+  padding-left: 2px;
+}
+
+.nav-tab.active .nav-desc {
+  color: rgba(232, 228, 217, 0.7);
+}
+
 .status-bar {
   margin: 22px 7vw 0;
   padding: 18px 22px;
@@ -708,6 +769,7 @@ h1 {
     padding: 22px 5vw 16px;
   }
 
+  .page-nav,
   .status-bar,
   .brief,
   .rank-board,
@@ -718,6 +780,22 @@ h1 {
     margin-right: 5vw;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .nav-container {
+    width: 100%;
+    display: flex;
+  }
+
+  .nav-tab {
+    flex: 1;
+    justify-content: center;
+    padding: 9px 8px;
+    font-size: 0.84rem;
+  }
+
+  .nav-desc {
+    display: none;
   }
 
   .rank-board {
