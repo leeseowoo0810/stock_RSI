@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>US Top 10 · 일봉 RSI 데스크</title>
+    <meta
+      name="description"
+      content="미국 시가총액 상위 10개 주식의 일봉 RSI(14)를 분석합니다. 정규장 일봉 종가 및 장중 실시간 일봉 반영."
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="masthead">
+      <div class="brand">
+        <span class="mark">RSI</span>
+        <div>
+          <h1>미국 10대 주식 일봉 RSI</h1>
+          <p>정규장 일봉 종가 기준 · Wilder RSI(14)</p>
+        </div>
+      </div>
+      <div class="clocks">
+        <div class="clock">
+          <span class="clock-label">미국 동부</span>
+          <strong id="us-time">--:--:--</strong>
+          <span id="us-date">—</span>
+        </div>
+        <div class="clock">
+          <span class="clock-label">한국</span>
+          <strong id="kr-time">--:--:--</strong>
+          <span id="kr-date">—</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="page-nav" aria-label="시간 주기 선택">
+      <div class="nav-container">
+        <a href="index.html" class="nav-tab">
+          <span class="nav-icon">⚡</span>
+          <span class="nav-title">1분봉 RSI</span>
+          <span class="nav-desc">실시간 단기 모멘텀</span>
+        </a>
+        <a href="daily.html" class="nav-tab active" aria-current="page">
+          <span class="nav-icon">📅</span>
+          <span class="nav-title">일봉 RSI</span>
+          <span class="nav-desc">일간 추세 및 스윙</span>
+        </a>
+      </div>
+    </nav>
+
+    <section class="status-bar" aria-live="polite">
+      <div class="status-main">
+        <span id="market-dot" class="dot closed"></span>
+        <div>
+          <p id="market-state" class="state-title">장 상태 확인 중</p>
+          <p id="market-detail" class="state-sub">뉴욕 정규장 09:30~16:00 ET 기준 일봉</p>
+        </div>
+      </div>
+      <div class="status-meta">
+        <div>
+          <span class="meta-label">일봉 기준</span>
+          <strong id="data-basis">불러오는 중</strong>
+        </div>
+        <div>
+          <span class="meta-label">다음 갱신</span>
+          <strong id="next-refresh">—</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="brief" id="market-brief">
+      <h2>일봉 데스크 브리핑</h2>
+      <p id="brief-text">일봉 시세를 불러오면 10종목 RSI를 종합해 분석합니다.</p>
+      <div class="brief-stats" id="brief-stats"></div>
+    </section>
+
+    <section class="rank-board" id="rank-board">
+      <div class="rank-col buy-col">
+        <div class="rank-header">
+          <span class="rank-icon">🟢</span>
+          <div>
+            <h3>매수 추천 순위 TOP 3</h3>
+            <p>일봉 과매도 구간 · 기술적 스윙 반등 타점 순위</p>
+          </div>
+        </div>
+        <div class="rank-list" id="buy-rank-list">
+          <div class="rank-loading">순위 집계 중…</div>
+        </div>
+      </div>
+
+      <div class="rank-col sell-col">
+        <div class="rank-header">
+          <span class="rank-icon">🔴</span>
+          <div>
+            <h3>매도 주의 순위 TOP 3</h3>
+            <p>일봉 과열 구간 · 차익 실현 및 중기 되돌림 경계 순위</p>
+          </div>
+        </div>
+        <div class="rank-list" id="sell-rank-list">
+          <div class="rank-loading">순위 집계 중…</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls-bar">
+      <span class="controls-label">정렬 기준</span>
+      <div class="sort-tabs" id="sort-tabs">
+        <button type="button" class="sort-btn active" data-sort="default">기본 시총 순</button>
+        <button type="button" class="sort-btn" data-sort="buy">🟢 매수 추천 순 (RSI 낮은 순)</button>
+        <button type="button" class="sort-btn" data-sort="sell">🔴 매도 주의 순 (RSI 높은 순)</button>
+      </div>
+    </section>
+
+    <main class="grid" id="stock-grid"></main>
+
+    <footer class="foot">
+      <p>
+        시세는 Yahoo Finance 일봉(1D, 최근 1년치)을 사용합니다. RSI는 일봉 종가로 Wilder RSI(14)를 계산하며,
+        정규장 중에는 현재 진행 중인 당일 일봉을 포함해 실시간 반영합니다.
+      </p>
+      <p>투자 권유가 아닌 참고용 지표입니다.</p>
+    </footer>
+
+    <script src="daily.js"></script>
+  </body>
+</html>
